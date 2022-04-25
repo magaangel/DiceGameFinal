@@ -67,7 +67,6 @@ public class PlayerController {
     @DeleteMapping("/players/{id}/games")//eliminar partidas de un jugador
     public ResponseEntity<Boolean> deleteGamesOfAPlayer(@PathVariable("id") Long idPlayer){
         Boolean delete = playerService.deleteGamesOfAPlayer(idPlayer);//retorna un boolean, true si ha sido eliminado games
-        Player player = playerService.findPlayerById(idPlayer);
         playerService.updatePlayer(playerService.findPlayerById(idPlayer));//actualizar para guardar los cambios, es decir, el atributo games vacio
         return new ResponseEntity<Boolean>(delete, HttpStatus.OK);
     }

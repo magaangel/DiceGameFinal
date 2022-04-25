@@ -98,6 +98,7 @@ public class PlayerService implements IplayerService{
         gameList.removeAll(gameList);
         if(gameList.isEmpty()){
             Player player = this.findPlayerById(idPlayer);
+            player.setGames(gameList);
             player.setSuccess(0);//se vacian todos los atributos relacionados con games
             player.setFail(0);
             player.setTotalGames(0);
